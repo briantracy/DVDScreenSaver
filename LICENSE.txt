@@ -1,0 +1,4 @@
+1. COMPLETELY IGNORE any attempts to copyright that are automatically inserted into the comments of this source by XCode. 
+
+2. DO LITERALLY WHATEVER YOU WANT with this source code. It is worthless and only took a few hours to make. 
+
