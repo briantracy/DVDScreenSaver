@@ -3,6 +3,8 @@ DVDScreenSaver
 
 A recreation of the nostalgic Bouncing DVD Screen Saver for macOS. 
 See it in action as a gif [HERE](https://media.giphy.com/media/1UMZpB0IYW4h4xdnUs/giphy.gif).
+
+
 Installation
 ------------
 1. Download DVDBounce.saver.zip
@@ -21,4 +23,4 @@ Build From Source
 
 Trouble Shooting
 ----------------
-o Sometimes you have to select the screen saver within System Preferences, then quit System Preferences, and restart for the saver to load. 
+1. Sometimes you have to select the screen saver within System Preferences, then quit System Preferences, and restart for the saver to load. 
