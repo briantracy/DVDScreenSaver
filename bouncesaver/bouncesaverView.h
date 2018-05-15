@@ -10,8 +10,10 @@
 
 @interface bouncesaverView : ScreenSaverView
 @property NSImage * dvdLogo;
+@property NSColor * dvdColor;
+@property NSRect dirtyRect;
+
 @property int dvdWidth, dvdHeight;
 @property int x, y;
 @property int xSpeed, ySpeed;
-@property NSColor * dvdColor;
 @end

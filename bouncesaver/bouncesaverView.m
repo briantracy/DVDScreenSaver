@@ -20,15 +20,19 @@
 {
     self = [super initWithFrame:frame isPreview:isPreview];
     if (self) {
-        [self setAnimationTimeInterval:1/30.0];
+        
+        const float fps = 30.0f;
+        [self setAnimationTimeInterval:1/fps];
 
         
-        const int speed = 2;
+        const int speed = WIDTH / (10.0 * fps); // adjust to any resolution.
+        // makes the logo travel across the screen in 10 seconds.
        
         self.dvdWidth = 512;
         self.dvdHeight = 256;
         self.x = WIDTH / 2.0 - self.dvdWidth / 2.0;
         self.y = HEIGHT / 2.0 - self.dvdHeight / 2.0;
+        self.dirtyRect = NSMakeRect(self.x, self.y, self.dvdWidth, self.dvdHeight);
         self.xSpeed = speed * (arc4random() % 2 == 0 ? 1 : -1);
         self.ySpeed = speed * (arc4random() % 2 == 0 ? 1 : -1);
         //self.dvdLogo = [[NSImage alloc] initWithContentsOfFile:@"/Users/briantracy/Desktop/Projects/bouncesaver/dvdlogo.png"];
@@ -38,7 +42,6 @@
         
         self.dvdLogo = [[NSImage alloc] initWithContentsOfFile:dvdPath];
         [self hitWall];
-        //self.path = [NSBezierPath bezierPathWithOvalInRect:<#(NSRect)#>]
     }
     return self;
 }
@@ -57,28 +60,24 @@
 
 - (void)drawRect:(NSRect)rectParam
 {
-    const float g = 48.0f/255.0f;
+    const float g = 32.0f/255.0f;
     [[NSColor colorWithRed:g green:g blue:g alpha:1.0f] setFill];
     NSRectFill(rectParam);
     NSRect rect;
-    NSSize size;
 
     
-    size = [self bounds].size;
     
     rect.size = NSMakeSize(self.dvdWidth, self.dvdHeight);
     
     self.x += self.xSpeed;
     self.y += self.ySpeed;
     rect.origin = CGPointMake(self.x, self.y);
+    self.dirtyRect = rect;
     
-    
-    //self.path = [NSBezierPath bezierPathWithOvalInRect:rect];
     
     
 
 
-    //[self.path fill];
     
     
     [self.dvdLogo drawInRect:rect];
@@ -123,7 +122,8 @@
 
 - (void)animateOneFrame
 {
-    [self setNeedsDisplay:true];
+    //[self setNeedsDisplay:true];
+    [self setNeedsDisplayInRect:self.dirtyRect];
     return;
 }
 
