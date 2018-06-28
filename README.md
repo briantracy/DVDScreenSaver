@@ -2,7 +2,8 @@ DVDScreenSaver
 ==============
 
 A recreation of the nostalgic Bouncing DVD Screen Saver for macOS. 
-See it in action as a gif [HERE](https://media.giphy.com/media/1UMZpB0IYW4h4xdnUs/giphy.gif).
+See it in action as a gif below
+![DVD Bouncing Around](https://media.giphy.com/media/1UMZpB0IYW4h4xdnUs/giphy.gif).
 
 
 Installation
